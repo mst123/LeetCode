@@ -43,5 +43,27 @@ var merge = function (nums1, m, nums2, n) {
 };
 // 上面属于先排列小的，如果改为先排列大的，就不需要额外空间了
 // 也是属于双指针
+var merge = function (nums1, m, nums2, n) {
+  var l1 = m - 1, l2 = n - 1, tail = nums1.length - 1;
+  while (l1 >= 0 && l2 >= 0) {
+    if (nums1[l1] > nums2[l2]) {
+      nums1[tail] = nums1[l1--];
+    } else {
+      nums1[tail] = nums2[l2--];
+    }
+    tail--;
+  }
+  if (l1 < 0) {
+    while (l2 >= 0) {
+      nums1[tail--] = nums2[l2--]; 
+    }
+  }
+  if (l2 < 0) {
+    while (l1 >= 0) {
+      nums1[tail--] = nums1[l1--]; 
+    }
+  }
+  return nums1;
+};
 // @lc code=end
 
