@@ -16,8 +16,9 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-  function df(pre, cur) {
+var reverseList = function (head) {
+  // 后置递归
+  /* function df(pre, cur) {
     if (cur === null) {
       return pre;
     } else {
@@ -26,7 +27,30 @@ var reverseList = function(head) {
       return df(cur, temp);
     }
   }
-  return df(null, head);
+  return df(null, head); */
+  // 前置递归
+  function df(head) {
+    if (!head || head.next === null) {
+      return head;
+    }
+    const last = df(head.next)
+    head.next.next = head
+    head.next = null
+    return last
+  }
+  return df(head);
+  // 迭代
+  /* var reverseList = function (head) {
+    var pre = null, cur = head, next;
+    while (cur) {
+      next = cur.next;
+      cur.next = pre;
+      
+      pre = cur;
+      cur = next;
+    }
+    return pre;
+  }; */
 };
 // @lc code=end
 

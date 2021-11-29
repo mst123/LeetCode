@@ -65,5 +65,28 @@ var merge = function (nums1, m, nums2, n) {
   }
   return nums1;
 };
+
+/* var merge = function(nums1, m, nums2, n) {
+  let p1 = p2 = 0
+  const arr = []
+  while(p1 < m || p2 < n){
+    if(p1 === m){
+      arr.push(nums2[p2])
+      p2++
+    }else if(p2 === n){
+      arr.push(nums1[p1])
+      p1++
+    }else if(nums1[p1] <= nums2[p2]){
+      arr.push(nums1[p1])
+      p1++
+    }else{
+      arr.push(nums2[p2])
+      p2++
+    }
+  }
+  for(let i=0;i<arr.length;i++){
+    nums1[i] = arr[i];
+  }
+}; */
 // @lc code=end
 
